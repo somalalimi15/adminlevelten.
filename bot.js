@@ -1,4 +1,6 @@
-  if (message.content.startsWith(adminprefix + 'setname')) {
+const Discord = require("discord.js")
+const client = new Discord.Client()
+if (message.content.startsWith(adminprefix + 'setname')) {
 client.user.setUsername(argresult).then
     message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
 return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
