@@ -27,5 +27,5 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 });
 
 
-client.login(process.env.BOT_TOKEN); 
+client.login(NDc4NDc0MjQ4MDc2Mzk0NDk3.Dn4piw.o6bDHClCwojePYe65ulxh-756WQ); 
 
