@@ -1,6 +1,8 @@
 const Discord = require("discord.js")
 const client = new Discord.Client()
 
+const devs = ['368768446327947265'];
+
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
