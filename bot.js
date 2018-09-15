@@ -12,3 +12,10 @@ if (message.content.startsWith(adminprefix + 'setT')) {
     message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
 }
 });
+
+    client.on('ready', () => {
+     client.user.setActivity("Road To 250 Members.",{type: 'Playing'});
+
+});
+
+client.login(process.env.BOT_TOKEN);
