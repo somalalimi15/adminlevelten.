@@ -55,7 +55,7 @@ client.on('message', message => {
         .setTitle('❌ | تمت معاقبتك')
         .setAuthor(message.author.username, message.author.avatarURL)
         .addField(`** لقد قمت بمخالفة قوانين السيرفر من خلال نشر روابط اضافة الى سيرفرات اخرى  **` , `**ملاحظة  : إن كآن هذآ الاسكات عن طريق الخطأ الرجاء التوجه والتكلم مع الادآرة**`)
-        .addField(`by`,`Hello,Im'iiLizx`)
+        .addField(`by`,`SoM .`)
         .setColor('RED')
         .setThumbnail(message.author.avatarURL)
         .setFooter(`${message.guild.name} Server`, message.guild.iconURL)
