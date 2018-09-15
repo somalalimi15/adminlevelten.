@@ -18,4 +18,5 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN); 
+
