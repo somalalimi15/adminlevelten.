@@ -725,6 +725,21 @@ Dat = currentTime.getDate()
  
 });
 
+client.on ('message',async Sal => { //By Salto7#4595
+    let embed = new Discord.RichEmbed()
+    if (Sal.content === "$id") {
+      let embed = new Discord.RichEmbed()
+     .setColor("RANDOM")
+     .setThumbnail(Sal.author.avatarURL)
+     .setImage(Sal.author.avatarURL)
+     .addField("اسمك:",`${Sal.author.username}`, true)
+     .addField('ايديك:',"" +  Sal.author.id, true)
+     .addField('تاقك', Sal.author.discriminator, true)
+     .addField('تم الانشاء في', Sal.author.createdAt, true)
+     Sal.channel.sendEmbed(embed);
+    }
+  });
+
 
 client.login(process.env.BOT_TOKEN);
 
