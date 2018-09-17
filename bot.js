@@ -3,7 +3,7 @@ const client = new Discord.Client()
 
 const devs = ['368768446327947265'];
 
-const adminprefix = "+";
+const adminprefix = "$";
 
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
@@ -66,7 +66,7 @@ client.on('message', message => {
 
 client.on('message', async message => {
   let args = message.content.split(" ");
-  if(message.content.startsWith(prefix + "mute")) {
+  if(message.content.startsWith(prefix $ "ميوت")) {
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('# - ملحوظة :  يجب ان يكون لديك برمشن أداري . ').then(msg => {
       msg.delete(3500);
       message.delete(3500);
@@ -781,6 +781,27 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 		logChannel.send(voiceLeave);
 	}
 });
+
+client.on("message", message => {
+              var args = message.content.substring(prefix.length).split(" ");
+              if (message.content.startsWith(prefix $ "مسح")) {
+                  if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
+          var msg;
+          msg = parseInt();
+        
+        message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+        message.channel.sendMessage("", {embed: {
+          title: "تــم مسح الشات",
+          color: 0x06DF00,
+          footer: {
+            
+          }
+        }}).then(msg => {msg.delete(9000)});
+                            }
+  
+       
+  });
 
 
 client.login(process.env.BOT_TOKEN);
