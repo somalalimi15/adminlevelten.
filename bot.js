@@ -769,28 +769,19 @@ client.on('ready',async () => {
 }
 });
   
-  client.on('guildMemberAdd', member => {
-  member.addRole('name', "On.Rz .")
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var stewart = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setTimestamp()
+            .setTitle('``رساله جديده في خاص البوت``')
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
+        client.channels.get("491270177971765248").send({ embed: stewart });
+    }
 });
-
-  client.on('message', warn => {
-  var prefix = "$";
-  let log = warn.guild.channels.find('name', "log")
-  let all = warn.guild.channels.find('name', "chat")
-  let user = warn.mentions.members.first();
-  let reason = warn.content.split(" ").slice(2).join(' ') 
-
-    var embed = new Discord.RichEmbed()
-    .setAuthor("**New Warn !**")
-    .setThumbnail(user.avatarURL)
-    .addField("User Warned", `${user}`)
-    .addField("Warned By", `<@${warn.author.id}>`)
-    .addField("Reason" , `${reason}`)
-  log.send({embed})
-  all.send({embed}
-  }
-});
-  
   
 
 client.login(process.env.BOT_TOKEN);
