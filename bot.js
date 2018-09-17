@@ -829,7 +829,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-     al.setName(Voice Online :[ ${msg.guild.members.filter(m => m.voiceChannel).size} ]);
+     al.setName( Voice Online. :[ ${msg.guild.members.filter(m => m.voiceChannel).size} ]);
       alp.setName(Time :[${hours} : ${minutes} : ${Seconds} ${suffix}]);
         alph.setName([ Date : [${Year} - ${Month} - ${Dat} ]);
  },1000);
