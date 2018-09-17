@@ -678,9 +678,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 
 client.on("message", message => {
               var args = message.content.substring(prefix.length).split(" ");
-	
-            if (message.content.startsWith(prefix + `مسح`))
-		      
+              if (message.content.startsWith(prefix + "clear")) {
                   if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
      if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
           var msg;
@@ -698,7 +696,6 @@ client.on("message", message => {
   
        
   });
-
 
 client.login(process.env.BOT_TOKEN);
 
