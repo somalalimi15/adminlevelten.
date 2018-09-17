@@ -773,23 +773,24 @@ client.on('ready',async () => {
   member.addRole('name', "On.Rz .")
 });
 
-client.on('message', message => {
-  let log = message.guild.channels.find('name', "log") 
-  let act = message.guild.roles.find('name', "• Verified")
-  let user = message.mentions.members.first();
-  if(message.content.startsWith(prefix + "act")){
-    var embed = new Discord.RichEmbed() 
-    .setAuthor(message.author.username) 
+  client.on('message', warn => {
+  var prefix = "$";
+  let log = warn.guild.channels.find('name', "log")
+  let all = warn.guild.channels.find('name', "chat")
+  let user = warn.mentions.members.first();
+  let reason = warn.content.split(" ").slice(2).join(' ') 
+  if(warn.content.startsWith(prefix $ "warn"){
+    var embed = new Discord.RichEmbed()
+    .setAuthor("**New Warn !**")
     .setThumbnail(user.avatarURL)
-    .addField('User Activated', ${user} get rank ${act})
-    .addField('By', <@${message.author.id}>)
-    .setTimestamp()
-    .setFooter("Codescopyright")
+    .addField("User Warned", `${user}`)
+    .addField("Warned By", `<@${warn.author.id}>`)
+    .addField("Reason" , `${reason}`)
   log.send({embed})
-  message.channel.send({embed})
-  user.addRole(${act})
+  all.send({embed}
   }
 });
+  
   
 
 client.login(process.env.BOT_TOKEN);
