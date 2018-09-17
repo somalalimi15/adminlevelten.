@@ -3,7 +3,8 @@ const client = new Discord.Client()
 
 const devs = ['368768446327947265'];
 
-const adminprefix = "$";
+const prefix = "$"
+
 
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
