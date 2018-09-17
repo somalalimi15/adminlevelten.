@@ -749,10 +749,7 @@ client.on('message', message => {
     },4000)//تقدر تغير الوقت كل , كل 1000 = ثانية
 })
 
-var dat = JSON.parse(fs.readFileSync('./invite.json', 'utf8'));
-function forEachObject(obj, func) {
-    Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
-}
+
 client.on("ready", () => {
     var guild;
     while (!guild)
