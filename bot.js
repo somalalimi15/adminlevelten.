@@ -750,44 +750,46 @@ client.on('message', message => {
 })
 
 
-client.on("ready", () => {
-    var guild;
-    while (!guild)
-        guild = client.guilds.get("Server id")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            dat[Inv] = Invite.uses;
-        })
-    })
-})
-client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.find('name', 'welcome');
-    if (!channel) {
-        console.log("!channel fails");
-        return;
+client.on('ready',async () => {
+  sendReady('491270177971765248', `MESSAGE`);
+  
+  function sendReady(channel, message) {
+    client.channels.get(channel).send(message);
+    console.log(message);
+  }
+});
+  
+  client.on('message', message => {
+    if(message.content.includes('discord.gg')){
+                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(`** No Invite Links :angry: !**`)
     }
-    if (member.id == client.user.id) {
-        return;
-    }
-    console.log('made it till here!');
-    var guild;
-    while (!guild)
-        guild = client.guilds.get("Server ID")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            if (dat[Inv])
-                if (dat[Inv] < Invite.uses) {
-                    console.log(3);
-                    console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
- channel.send(`تم دعوتك من قبل ${Invite.inviter}`)            
- }
-            dat[Inv] = Invite.uses;
-        })
-    })
+}
+});
+  
+  client.on('guildMemberAdd', member => {
+  member.addRole('name', "On.Rz .")
 });
 
+client.on('message', message => {
+  let log = message.guild.channels.find('name', "log") 
+  let act = message.guild.roles.find('name', "• Verified")
+  let user = message.mentions.members.first();
+  if(message.content.startsWith(prefix + "act")){
+    var embed = new Discord.RichEmbed() 
+    .setAuthor(message.author.username) 
+    .setThumbnail(user.avatarURL)
+    .addField('User Activated', ${user} get rank ${act})
+    .addField('By', <@${message.author.id}>)
+    .setTimestamp()
+    .setFooter("Codescopyright")
+  log.send({embed})
+  message.channel.send({embed})
+  user.addRole(${act})
+  }
+});
   
 
 client.login(process.env.BOT_TOKEN);
