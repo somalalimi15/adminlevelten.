@@ -740,5 +740,15 @@ client.on('message', message => {
     }
 });
 
+  client.on('guildMemberAdd', ReBeL => {
+ /*العبارات هنا */ var ReeeBeL = ["Welcome @","منور @!","أهلا بمن أتى @"]
+    var Coooooooooooooodes = ReeeBeL[Math.floor(Math.random() * ReeeBeL.length)];
+    Coooooooooooooodes = Coooooooooooooodes.replace('@', ReBeL.user.username)
+    setTimeout(function() {
+        client.channels.filter(c => c.id == "487908968249950211").first().send(Coooooooooooooodes)//أيدي الروم بالمكان المحدد
+    },4000)//تقدر تغير الوقت كل , كل 1000 = ثانية
+})
+  
+
 client.login(process.env.BOT_TOKEN);
 
