@@ -779,7 +779,7 @@ client.on('ready',async () => {
   let all = warn.guild.channels.find('name', "chat")
   let user = warn.mentions.members.first();
   let reason = warn.content.split(" ").slice(2).join(' ') 
-  if(warn.content.startsWith(prefix $ "warn"){
+
     var embed = new Discord.RichEmbed()
     .setAuthor("**New Warn !**")
     .setThumbnail(user.avatarURL)
