@@ -786,7 +786,7 @@ client.on('message', function(message) {
   client.on('message', message => {
     
 	   var prefix = "$"; 
-           if (message.content.startsWith(prefix $ "id")) {
+           if (message.content.startsWith(prefix + "id")) {
            if (message.channel.id !== "487922116428169216") return;
             
             if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات ❌`);
