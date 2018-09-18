@@ -913,7 +913,6 @@ if( verifed.some(word => message.author.id.includes(word)) ) {    return message
 }
 });
 
-const client = new Discord.Client();
 client.on('ready', () => {
   client.user.setGame('codes_support',`https://www.twitch.tv/`);
   console.log('codes_support');
