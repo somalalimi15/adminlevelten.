@@ -5,7 +5,36 @@ const devs = ['368768446327947265'];
 
 const prefix = "$"
 
-
+const moment = require('moment');
+    client.on('message', message => {
+          if (message.content.startsWith("$id join")) {
+            if(!message.channel.guild) return message.reply('هذا الامر للسيرفرات فقط')
+    var args = message.content.split(" ").slice(1);
+    let user = message.mentions.users.first();
+    var men = message.mentions.users.first();
+       var heg;
+       if(men) {
+           heg = men
+       } else {
+           heg = message.author
+       }
+     var mentionned = message.mentions.members.first();
+        var h;
+       if(mentionned) {
+           h = mentionned
+       } else {
+           h = message.member
+       }
+              moment.locale('ar-TN');
+     var id = new  Discord.RichEmbed()
+   .setColor("RANDOM")
+   .setThumbnail(message.author.avatarURL)
+   .setAuthor(` ${message.author.username} `, message.author.avatarURL)
+   .addField(': تاريخ دخولك للديسكورد', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
+   .addField(': تاريخ دخولك لسيرفرنا', `${moment(h.joinedAt).format('YYYY/M/D HH:mm')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
+   .setFooter(`${message.author.username}`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
+   message.channel.send(id)
+}       });
 
   
   client.on('message', message => {
