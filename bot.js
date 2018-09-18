@@ -823,7 +823,7 @@ footer: {
   
   if (!args[0]) return message.reply("**منشن شخص**");
   if (!message.guild.member(user)
-  return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
+  message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
 
 
   message.guild.member(user).ban(7, user);
