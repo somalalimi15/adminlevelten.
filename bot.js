@@ -805,7 +805,6 @@ footer: {
 
 });
 
-var prefix = "$";
  client.on('message', message => {
   if (message.author.codes) return;
   if (!message.content.startsWith(prefix)) return;
