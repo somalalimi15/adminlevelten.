@@ -726,7 +726,7 @@ Dat = currentTime.getDate()
 });
 
 client.on('message', message => {
-   if (message.content === "$id") {
+   if (message.content === "$id 2") {
    let embed = new Discord.RichEmbed()
   .setColor("RANDOM")
   .setThumbnail(message.author.avatarURL)
@@ -773,78 +773,8 @@ client.on('message', function(message) {
     }
 });
 
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'chat');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return;
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField('🎽 | name :  ',`${member}`)
-        .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
-        .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                     
-                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
-                                       
-     .setFooter(`${member.guild.name}`)
-        .setTimestamp()
-   
-      channel.sendEmbed(embed);
-    });
-    
-    client.on('guildMemberRemove', member => {
-        var embed = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
-        .setThumbnail(member.user.avatarURL)
-        .setTitle(`الله معاك ✋:skin-tone-1: 😔`)
-        .setDescription(`مع السلامه تشرفنا بك ✋:skin-tone-1: 😔 `)
-        .addField('👤   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
-        .setColor('RED')
-        .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
-    
-    var channel =member.guild.channels.find('name', 'remove-members')
-    if (!channel) return;
-    channel.send({embed : embed});
-    })
-    
-    client.on('guildMemberRemove', member => {
-        var embed = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
-        .setThumbnail(member.user.avatarURL)
-        .setTitle(`الله معاك ✋:skin-tone-1: 😔`)
-        .setDescription(`مع السلامه تشرفنا بك ✋:skin-tone-1: 😔 `)
-        .addField('👤   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
-        .setColor('RED')
-        .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
-    
-    var channel =member.guild.channels.find('name', 'remove-members')
-    if (!channel) return;
-    channel.send({embed : embed});
-    })
-
-  client.on("message", message => {
-    var args = message.content.substring(prefix.length).split(" ");
-    if (message.content.startsWith(prefix + "$مسح")) {
-        if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
-var msg;
-msg = parseInt();
-
-message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-message.channel.sendMessage("", {embed: {
-title: "تــم مسح الشات",
-color: 0x06DF00,
-footer: {
-  
-}
-}}).then(msg => {msg.delete(9000)});
-                  }
 
 
-});
 
 
 const D = require("discord.js");
@@ -995,42 +925,7 @@ client.on("message", async message => {
       }
       });
 
-      client.on("message", msg => {
-        if(msg.content === '$' + "id member") {
-            const embed = new Discord.RichEmbed();
-        embed.addField("🔱| اسم الحساب :", `${msg.author.username}#${msg.author.discriminator}`, true)
-                .addField("🆔| الاي دي :", `${msg.author.id}`, true)
-                .setColor("RANDOM")
-                .setFooter(msg.author.username , msg.author.avatarURL)
-                .setThumbnail(`${msg.author.avatarURL}`)
-                .setTimestamp()
-                .setURL(`${msg.author.avatarURL}`)
-                .addField('📛| الحالة :', `${msg.author.presence.status.toUpperCase()}`, true)
-                .addField('🎲| بلاينج :', `${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name}`, true)
-                .addField('🏅| الرتب : ', `${msg.member.roles.filter(r => r.name).size}`, true)
-                .addField('📅| تم الانضمام للديسكورد في :', `${msg.createdAt}`,true)
-                .addField('🤖| هل هو بوت ؟', `${msg.author.bot.toString().toUpperCase()}`, true);
-            msg.channel.send({embed: embed})
-        }
-      });
-
-      client.on('message', message => {
-        if (!message.channel.guild) return;
-if(message.content =='$members')
-var kayan = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.setFooter(message.author.username, message.author.avatarURL) 
-.setTitle('🌷| Members info')
-.addBlankField(true)
-.addField('📗| Online',
-`${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
-.addField('📕| DND',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
-.addField('📙| Idle',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
-.addField('📓| Offline',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
-.addField('➡| Server Members',`${message.guild.memberCount}`)
-message.channel.send(kayan);
-
-});
+ 
 
 client.on('message', message => {
     if (message.author.bot) return;
@@ -1041,7 +936,7 @@ client.on('message', message => {
   
     let args = message.content.split(" ").slice(1);
   
-    if (command == "قول") {
+    if (command == "say") {
      message.channel.sendMessage(args.join("  "))
      message.delete()
     }
@@ -1064,24 +959,13 @@ client.on('message', message => {
         });
        
         client.on('ready', () => {
-            client.user.setActivity("On.Rz  . | Owner : SoM .",{type: 'WATCHING'});
+            client.user.setActivity("On.Rz  . | Owner : SoM .",{type: 'streaming'});
        
        });
 
-client.on('message', function(message) {
-    if (message.content == "$مسحح") {
-        if (message.member.hasPermission("MANAGE_MESSAGES")) {
-            message.channel.fetchMessages()
-               .then(function(list){
-                    message.channel.bulkDelete(list);
-                }, function(err){message.channel.send("ERROR: ERROR CLEARING CHANNEL.")})
-        }
-    }
-
-});
 
 client.on('ready',async () => {
-  sendReady('491517470138433536', `**__ تـم تـشـغـيـل الـبـوت بـنـجـاح , System Bot | Owner Bot : SoM # 1100__**`);
+  sendReady('491517470138433536', `**__ تـم تـشـغـيـل الـبـوت بـنـجـاح , System Bot | Owner Bot : SoM # 1100__** @ᶠᶤᵛᵉ . Güüz.SoM.#1100 `);
   
   function sendReady(channel, message) {
     client.channels.get(channel).send(message);
