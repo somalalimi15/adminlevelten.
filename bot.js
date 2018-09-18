@@ -684,41 +684,6 @@ client.on('message', message=> {
     }
 });
 
-client.on('guildCreate', guild => {
-    
-  client.channels.get("491270177971765248")
-const embed = new Discord.RichEmbed()
-   .setAuthor(`بوتك دخل سيرفر جديد | ✅`)
-   .setDescription(`**
-Server name: __${guild.name}__
-Server id: __${guild.id}__
-Server owner: __${guild.owner}__
-Member Count: __${guild.memberCount}__
-Servers Counter : __${client.guilds.size}__**`)
-         .setColor("#f3ae10")
-         .addField("New Server!")
-         .setFooter('System | SoM . ' , client.user.avatarURL)
-           client.channels.get("491270177971765248").send({embed});
-}
-
-);
-
-
-client.on('message', message => {
-   if (message.content === "$id 2") {
-   let embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setThumbnail(message.author.avatarURL)
-  .addField("NAME› ",`${message.author.username}`, true)
-  .addField('Tag›',"#" +  message.author.discriminator, true)
-  .addField("ID›", message.author.id, true)
-  .addField("Create›", message.author.createdAt, true)
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
-
 client.on('ready',async () => {
   sendReady('491270177971765248', `MESSAGE`);
   
@@ -853,7 +818,7 @@ client.on('message', msg => {
 
 const fs = require('fs')
 const p = {}
-const premium = ['الايدي حقك']
+const premium = ['368768446327947265']
 client.on('message', message => {
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
