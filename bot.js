@@ -902,7 +902,6 @@ message.channel.send(`${user} has ${inviteCount} invites.`);
 });
 
 
-var prefix = "$";
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   const verifed = ["368768446327947265"];
