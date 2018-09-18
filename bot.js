@@ -902,10 +902,6 @@ message.channel.send(`${user} has ${inviteCount} invites.`);
 });
 
 
-}
-
-});
-
 var prefix = "$";
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
